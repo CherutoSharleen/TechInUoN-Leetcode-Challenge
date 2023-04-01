@@ -10,16 +10,21 @@ class Solution():
         # If s is empty or is an odd number
         if s is None or len(s) % 2 == 1:
             return False
+        
         # The solution has to start with an opening parentheses.
         # No matter how many
         # Use Stack
 
         # HashMap
         stack = []
+        # Dictionary of the opening and the corresponding closing parentheses
         pSet = {")":"(", "]":"[","}":"{"}
-        #stack[-1] is the last value added in the stack
-
+        
+        #stack[-1] is the value at the top of the stack
         for char in s:
+            # if the character is in the dictionary
+            # check if the stack is empty
+            # if it is not empty check if the top of the stack is equal to the value of the key
             if char in pSet:
                 if stack and stack[-1] == pSet[char]:
                     stack.pop()
@@ -56,6 +61,6 @@ class Solution():
     
         
 
-s = "()"
+s = "([{}])"
 sol = Solution()
 sol.isValid(s)
