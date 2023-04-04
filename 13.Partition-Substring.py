@@ -9,6 +9,8 @@ We have to return the minimum number of substrings in such a partition.
 s = abacaba
 output = 4
 Explanation: The string can be partitioned as [a, ba, cab, a] and [ab,ac,ab,a]
+https://leetcode.com/problems/optimal-partition-of-string/description/
+
 '''
 
 # Solution
