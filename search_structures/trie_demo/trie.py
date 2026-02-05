@@ -36,6 +36,28 @@ class Trie:
         self._dfs(node, prefix, results, limit)
         return results
 
+    def delete(self, word: str) -> bool:
+        word = word.lower()
+
+        def _delete(node: TrieNode, idx: int) -> tuple[bool, bool]:
+            if idx == len(word):
+                if not node.is_end:
+                    return False, False
+                node.is_end = False
+                return True, len(node.children) == 0
+            char = word[idx]
+            child = node.children.get(char)
+            if child is None:
+                return False, False
+            deleted, prune_child = _delete(child, idx + 1)
+            if prune_child:
+                del node.children[char]
+            should_prune = (not node.is_end) and len(node.children) == 0
+            return deleted, should_prune
+
+        deleted, _ = _delete(self.root, 0)
+        return deleted
+
     def _dfs(self, node: TrieNode, current: str, results: list[str], limit: int) -> None:
         if len(results) >= limit:
             return

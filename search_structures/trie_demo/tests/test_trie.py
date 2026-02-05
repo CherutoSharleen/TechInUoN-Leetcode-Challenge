@@ -16,6 +16,12 @@ class TrieTests(unittest.TestCase):
             trie.insert(word)
         self.assertEqual(trie.completions("gr"), ["graph", "greedy", "grid"])
 
+    def test_delete_word(self) -> None:
+        trie = Trie()
+        trie.insert("graph")
+        self.assertTrue(trie.delete("graph"))
+        self.assertFalse(trie.has_word("graph"))
+
 
 if __name__ == "__main__":
     unittest.main()
