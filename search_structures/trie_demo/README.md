@@ -61,7 +61,3 @@ Word list is fictional/synthetic.
 
 - Current implementation is case-insensitive and ASCII-focused.
 - Extend with frequency ranking and fuzzy prefix matching.
-
-## Disclosure
-
-This is a retrospective educational addition created now. Historical author dates may be used for commit metadata and do not indicate the actual execution date of this work.
