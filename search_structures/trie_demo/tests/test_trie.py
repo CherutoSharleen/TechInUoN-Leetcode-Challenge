@@ -22,6 +22,12 @@ class TrieTests(unittest.TestCase):
         self.assertTrue(trie.delete("graph"))
         self.assertFalse(trie.has_word("graph"))
 
+    def test_prefix_count(self) -> None:
+        trie = Trie()
+        for word in ["graph", "greedy", "grid", "tree"]:
+            trie.insert(word)
+        self.assertEqual(trie.prefix_count("gr"), 3)
+
 
 if __name__ == "__main__":
     unittest.main()

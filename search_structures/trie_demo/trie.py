@@ -36,6 +36,9 @@ class Trie:
         self._dfs(node, prefix, results, limit)
         return results
 
+    def prefix_count(self, prefix: str) -> int:
+        return len(self.completions(prefix, limit=10_000))
+
     def delete(self, word: str) -> bool:
         word = word.lower()
 
