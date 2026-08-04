@@ -39,6 +39,14 @@ class Trie:
     def prefix_count(self, prefix: str) -> int:
         return len(self.completions(prefix, limit=10_000))
 
+    def starts_with(self, prefix: str) -> bool:
+        node = self.root
+        for char in prefix.lower():
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return True
+
     def delete(self, word: str) -> bool:
         word = word.lower()
 

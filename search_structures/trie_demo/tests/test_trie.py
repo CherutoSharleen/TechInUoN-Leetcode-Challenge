@@ -28,6 +28,12 @@ class TrieTests(unittest.TestCase):
             trie.insert(word)
         self.assertEqual(trie.prefix_count("gr"), 3)
 
+    def test_starts_with(self) -> None:
+        trie = Trie()
+        trie.insert("graph")
+        self.assertTrue(trie.starts_with("gr"))
+        self.assertFalse(trie.starts_with("xy"))
+
 
 if __name__ == "__main__":
     unittest.main()
