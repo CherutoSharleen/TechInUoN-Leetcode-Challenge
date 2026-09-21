@@ -47,6 +47,12 @@ class Trie:
             node = node.children[char]
         return True
 
+    def first_completion(self, prefix: str) -> str | None:
+        options = self.completions(prefix, limit=1)
+        if not options:
+            return None
+        return options[0]
+
     def delete(self, word: str) -> bool:
         word = word.lower()
 

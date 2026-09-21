@@ -34,6 +34,12 @@ class TrieTests(unittest.TestCase):
         self.assertTrue(trie.starts_with("gr"))
         self.assertFalse(trie.starts_with("xy"))
 
+    def test_first_completion(self) -> None:
+        trie = Trie()
+        trie.insert("graph")
+        trie.insert("grid")
+        self.assertEqual(trie.first_completion("gr"), "graph")
+
 
 if __name__ == "__main__":
     unittest.main()
